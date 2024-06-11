@@ -1,5 +1,5 @@
 :root {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
     line-height: 1.5;
     font-weight: 400;
   
@@ -11,135 +11,254 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
+}
+
+a {
+    color: #f0efef;
+    text-decoration: none;
+}
 
 body {
-    font-family: Arial, sans-serif;
+    /* font-family: Arial, sans-serif; */
     margin: 0;
     padding: 0;
-  }
-  
-  .app-header {
+}
+
+/* Home Page Main Styling */
+/**************************/
+.movie-list {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-  }
-  
-  .app-title {
-    font-size: 1.5rem;
-    color: white;
-    text-decoration: none;
-  }
-  
-  .app-nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 15px;
-  }
-  
-  .app-nav ul li {
-    display: inline;
-  }
-  
-  .app-nav ul li a {
-    color: white;
-    text-decoration: none;
-  }
-  
-  .app-nav ul li a:hover {
-    text-decoration: underline;
-  }
-  
-  .movie-list {
-    display: flex;
+    max-width: 84.375rem;
     flex-wrap: wrap;
     gap: 20px;
     padding: 20px;
     justify-content: center;
-  }
-  
-  .movie-card {
+    margin: 0 auto;
+}
+
+.movie-card {
     width: 200px;
     text-align: center;
-  }
-  
-  .movie-card img {
+    margin: 2rem auto;
+}
+
+.movie-card .movie-card-text {
+    display:flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 32.6875rem;
+}
+
+.movie-card h3 {
+    height: 3.5625rem;
+}
+
+.movie-card img {
     width: 100%;
     border-radius: 10px;
-  }
+}
+
+.card-title {
+    margin-top: 1rem;
+}
+
+.card-title:hover {
+    color: #fcec11;
+}
+
+.movie-card-poster {
+    position: relative;
+}
   
-  .movie-detail {
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .movie-detail img {
-    width: 300px;
+.movie-card img {
+    width: 100%;
     border-radius: 10px;
-  }
-  
-  .movie-detail h1 {
-    margin: 20px 0;
-  }
-  
-  .movie-detail p {
-    font-size: 16px;
-  }
-  
-  .movie-detail button {
-    padding: 10px 20px;
-    background-color: #007bff;
+}
+
+
+/* Movie Card Hover Styles */
+/***************************/
+.movie-card-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
     color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+.movie-card-poster:hover .movie-card-hover {
+    opacity: 1;
+}
+
+.movie-card-hover p {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.favorites h1 {
+    margin-bottom: 0;
+}
+
+/* Buttons Styles */
+/******************/
+.favorite-btn,
+.more-info {
+    background-color: #fcec11;
+    color: #0c0c0c;
+}
+
+.favorite-btn:hover,
+.more-info:hover {
+    background-color: #cabe0d;
+}
+
+.movie-card-hover button,
+.more-info {
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
-  .movie-detail button:hover {
-    background-color: #0056b3;
-  }
-  
-  .home, .about, .favorites {
+}
+
+/* Detailed Movie Page Styles */
+/******************************/
+
+.movie-detail {
     padding: 20px;
     text-align: center;
-  }
-  
-  .category-select {
+    max-width: 68.75rem;
+    margin: 0 auto;
+}
+
+.movie-detail img {
+    width: 300px;
+    border-radius: 10px;
+}
+
+.movie-detail h1 {
+    margin: 20px 0;
+}
+
+.movie-detail p {
+    font-size: 16px;
+}
+
+.movie-detail button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Desktop Styling */
+/*******************/
+@media (min-width: 48rem) {
+
+    .movie-detail {
+        text-align: left;
+    }
+
+    .movie-detail .text-detail {
+        max-width: 68.75rem;
+    }
+
+    .movie-detail img {
+        float: left;
+        margin-right: 1.5rem;
+    }
+}
+
+@media (min-width: 68.75rem) {
+    .movie-detail {
+        margin-top: 3rem;
+    }
+
+    .movie-detail button {
+        margin-top: 2rem;
+    }
+}
+
+.home, .about, .favorites {
+    padding: 20px;
+    text-align: center;
+}
+
+
+/* DropDown Styles */
+/*******************/
+/* .category-select {
     margin-bottom: 20px;
-  }
-  
-  .category-select label {
+}
+
+.category-select label {
     margin-right: 10px;
-  }
+} */
+
+.category-select {
+    margin: 1.25rem 0;
+}
   
-  .tmdb-attribution {
-    margin-top: 20px;
+.category-select label {
+    font-size: 1rem;
+    color: #ffffff;
+    margin-bottom: .5rem;
+}
+
+.category-select select {
+    border: .0625rem solid #ccc;
+    color: #0c0c0c;
+    padding: .625rem;
+    font-size: 1rem;
+    border-radius: .5rem;
+    background: #fff;
+    cursor: pointer;
+}
+
+/* About Page Styles */
+/*********************/
+
+.about {
+    align-items: center;
+}
+
+.about {
+    margin: 1rem auto;
+}
+
+.tmdb-attribution {
     text-align: left;
-  }
-  
-  .tmdb-attribution p {
+    align-items: center;
+}
+
+.tmdb-attribution p {
     font-size: 12px;
+    margin-top: .625rem;
     color: gray;
-  }
-  
-  .tmdb-logo {
+}
+
+.tmdb-logo {
+    margin-top: .625rem;
     width: 100px;
-    margin-top: 10px;
-  }
-  
-  @media (max-width: 768px) {
-    .app-nav ul {
-      flex-direction: column;
-      align-items: center;
+}
+
+@media (min-width: 48rem) {
+    .about {
+        font-size: 2rem;
+        max-width: 68.75rem;
     }
-  
-    .app-nav ul li {
-      margin-bottom: 10px;
+
+    .tmdb-attribution p {
+        font-size: 1.2rem;
     }
-  }
-  
+    
+}

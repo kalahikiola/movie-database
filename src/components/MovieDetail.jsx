@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieDetails } from '../api';
+import { checkIfFavorite, toggleFavorite } from './Functions.jsx';
 
 const MovieDetail = () => {
     const { id } = useParams();
@@ -10,34 +11,13 @@ const MovieDetail = () => {
 
     useEffect(() => {
         const getMovieDetails = async () => {
-        const movieDetails = await fetchMovieDetails(id);
-        setMovie(movieDetails);
-        setLoading(false);
-        checkIfFavorite(movieDetails);
+            const movieDetails = await fetchMovieDetails(id);
+            setMovie(movieDetails);
+            setLoading(false);
+            setIsFavorite(checkIfFavorite(movieDetails));
         };
         getMovieDetails();
     }, [id]);
-
-    const checkIfFavorite = (movie) => {
-        const savedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
-        const isAlreadyFavorite = savedFavorites.some(fav => fav.id === movie.id);
-        setIsFavorite(isAlreadyFavorite);
-    };
-
-    const toggleFavorite = (movie) => {
-        const savedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
-        const isAlreadyFavorite = savedFavorites.some(fav => fav.id === movie.id);
-
-        if (isAlreadyFavorite) {
-        const updatedFavorites = savedFavorites.filter(fav => fav.id !== movie.id);
-        localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-        setIsFavorite(false);
-        } else {
-        savedFavorites.push(movie);
-        localStorage.setItem('favorites', JSON.stringify(savedFavorites));
-        setIsFavorite(true);
-        }
-    };
 
     if (loading) return <p>Loading...</p>;
 
@@ -48,14 +28,16 @@ const MovieDetail = () => {
 
     return (
         <div className="movie-detail">
-        <img src={imageUrl} alt={title} />
-        <h1>{title}</h1>
-        <p>Release Date: {release_date}</p>
-        <p>Rating: {vote_average * 10}%</p>
-        <p>{overview}</p>
-        <button onClick={() => toggleFavorite(movie)}>
-            {isFavorite ? 'Unfavorite' : 'Favorite'}
-        </button>
+            <img src={imageUrl} alt={title} />
+            <div className='text-detail'>
+                <h1>{title}</h1>
+                <p>Release Date: {release_date}</p>
+                <p>Rating: {vote_average * 10}%</p>
+                <p>{overview}</p>
+                <button className='favorite-btn' onClick={() => { toggleFavorite(movie); setIsFavorite(checkIfFavorite(movie)); }}>
+                    {isFavorite ? 'Unfavorite' : 'Favorite'}
+                </button>
+            </div>
         </div>
     );
 };

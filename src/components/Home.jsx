@@ -9,10 +9,10 @@ const Home = () => {
 
     useEffect(() => {
         const getMovies = async () => {
-        setLoading(true);
-        const movies = await fetchMovies(category);
-        setMovies(movies);
-        setLoading(false);
+            setLoading(true);
+            const movies = await fetchMovies(category);
+            setMovies(movies);
+            setLoading(false);
         };
         getMovies();
     }, [category]);
@@ -23,7 +23,7 @@ const Home = () => {
 
     return (
         <div className="home">
-        <h1>Welcome to the Movie Database</h1>
+        <h1>Welcome to the Movie Bee</h1>
         <div className="category-select">
             <label htmlFor="category">Select Category: </label>
             <select id="category" value={category} onChange={handleCategoryChange}>
