@@ -1,0 +1,145 @@
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+  
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+  
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+  }
+  
+  .app-title {
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .app-nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+  }
+  
+  .app-nav ul li {
+    display: inline;
+  }
+  
+  .app-nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .app-nav ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  .movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+  }
+  
+  .movie-card {
+    width: 200px;
+    text-align: center;
+  }
+  
+  .movie-card img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .movie-detail {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .movie-detail img {
+    width: 300px;
+    border-radius: 10px;
+  }
+  
+  .movie-detail h1 {
+    margin: 20px 0;
+  }
+  
+  .movie-detail p {
+    font-size: 16px;
+  }
+  
+  .movie-detail button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .movie-detail button:hover {
+    background-color: #0056b3;
+  }
+  
+  .home, .about, .favorites {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .category-select {
+    margin-bottom: 20px;
+  }
+  
+  .category-select label {
+    margin-right: 10px;
+  }
+  
+  .tmdb-attribution {
+    margin-top: 20px;
+    text-align: left;
+  }
+  
+  .tmdb-attribution p {
+    font-size: 12px;
+    color: gray;
+  }
+  
+  .tmdb-logo {
+    width: 100px;
+    margin-top: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .app-nav ul {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .app-nav ul li {
+      margin-bottom: 10px;
+    }
+  }
+  
